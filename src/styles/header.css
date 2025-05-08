@@ -1,0 +1,116 @@
+/* Header principal */
+.header {
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 1.5rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+  }
+  
+  /* Menú Hamburguesa */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: var(--transition);
+    transform-origin: center;
+  }
+  
+  /* Estados del menú */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  /* Lista de navegación */
+  .nav-list {
+    display: none;
+    list-style: none;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  /* Mobile Menu Active */
+  .nav-list.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Desktop */
+  @media (min-width: 768px) {
+    .menu-toggle {
+      display: none;
+    }
+  
+    .nav-list {
+      display: flex;
+      position: static;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      animation: none;
+    }
+  }

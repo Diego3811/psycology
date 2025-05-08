@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #2563eb;
+    --text-dark: #1f2937;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui;
+    line-height: 1.5;
+    padding-top: 80px; /* Espacio para header fijo */
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }

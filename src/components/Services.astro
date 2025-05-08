@@ -1,0 +1,51 @@
+---
+// src/components/Services.astro
+import '../styles/services.css';
+import { initServiceCards } from '../scripts/services.js';
+
+const services = [
+  {
+    title: "Terapia Individual",
+    icon: "🧠",
+    description: "Sesiones personalizadas para manejo de ansiedad, depresión y desarrollo personal.",
+    items: ["Sesiones de 50 min", "Enfoque CBT", "Seguimiento semanal"]
+  },
+  {
+    title: "Terapia de Pareja",
+    icon: "💞",
+    description: "Mejora la comunicación y resolución de conflictos en tu relación.",
+    items: ["Análisis de dinámicas", "Talleres prácticos", "Seguimiento conjunto"]
+  },
+  {
+    title: "Talleres Grupales",
+    icon: "👥",
+    description: "Espacios de crecimiento colectivo y aprendizaje colaborativo.",
+    items: ["Mindfulness", "Manejo del estrés", "Habilidades sociales"]
+  }
+];
+---
+
+<section class="services" id="servicios" aria-labelledby="services-heading">
+  <div class="container">
+    <h2 id="services-heading" class="section-title" data-animate="fade-up">Nuestros Servicios</h2>
+    
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <article class="service-card" data-animate="fade-up" data-animate-delay={index * 100}>
+          <div class="card-header">
+            <span class="service-icon">{service.icon}</span>
+            <h3 class="service-title">{service.title}</h3>
+          </div>
+          <p class="service-description">{service.description}</p>
+          <ul class="service-features">
+            {service.items.map(item => <li>{item}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', initServiceCards);
+</script>
