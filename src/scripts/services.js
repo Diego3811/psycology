@@ -20,3 +20,6 @@ export function initServiceCards() {
       });
     });
   }
+
+
+  document.addEventListener('DOMContentLoaded', initServiceCards);

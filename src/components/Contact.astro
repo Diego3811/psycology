@@ -1,0 +1,90 @@
+---
+// src/components/Contact.astro
+import '../styles/contact.css';
+import { initContactForm } from '../scripts/contact.js';
+
+const contactInfo = [
+  {
+    icon: '📞',
+    title: "Teléfono",
+    content: "+52 55 1234 5678",
+    link: "tel:+525512345678"
+  },
+  {
+    icon: '📧',
+    title: "Email",
+    content: "contacto@psicologíaintegral.com",
+    link: "mailto:contacto@psicologíaintegral.com"
+  },
+  {
+    icon: '📍',
+    title: "Ubicación",
+    content: "Av. Reforma 123, CDMX",
+    link: "https://maps.app.goo.gl/ejemplo"
+  }
+];
+---
+
+<section class="contact" id="contacto" aria-labelledby="contact-heading">
+  <div class="container">
+    <h2 id="contact-heading" class="section-title" data-animate="fade-up">Contacto</h2>
+    
+    <div class="contact-grid">
+      <!-- Info de Contacto -->
+      <div class="contact-info" data-animate="fade-up">
+        {contactInfo.map(item => (
+          <div class="contact-card">
+            <span class="contact-icon">{item.icon}</span>
+            <h3 class="contact-subtitle">{item.title}</h3>
+            <a href={item.link} class="contact-link">{item.content}</a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Formulario -->
+      <form class="contact-form" id="contactForm" data-animate="fade-up">
+        <div class="form-group">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Teléfono (opcional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+
+    <!-- Mapa -->
+    <div class="contact-map" data-animate="fade-up">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.888244592925!2d-99.16783808453314!3d19.427020886893215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3758e9d78b%3A0x6e8627257c7ddfc6!2sPalacio%20de%20Bellas%20Artes!5e0!3m2!1ses-419!2smx!4v1717374326878!5m2!1ses-419!2smx" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa de ubicación">
+      </iframe>
+    </div>
+  </div>
+</section>
+<!-- 
+<script>
+  document.addEventListener('DOMContentLoaded', initContactForm);
+</script> -->
